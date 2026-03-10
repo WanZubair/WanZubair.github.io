@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wan Zubair | Portfolio</title>
     <style>
-        /* CSS Variables for easy color changes */
         :root {
             --primary: #24292e;
             --accent: #00d4ff;
@@ -13,60 +12,54 @@
             --text: #333;
         }
 
+        /* The Fix: Remove browser defaults to eliminate side gaps */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { line-height: 1.6; color: var(--text); scroll-behavior: smooth; }
+        body { line-height: 1.6; color: var(--text); scroll-behavior: smooth; width: 100%; overflow-x: hidden; }
         
-        /* Navigation - Desktop */
-        header { background: var(--primary); color: #fff; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        header { background: var(--primary); color: #fff; padding: 1.2rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
         nav { display: flex; justify-content: center; gap: 25px; }
         nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
         nav a:hover { color: var(--accent); }
 
-        /* Mobile Nav Adjustments */
-        @media (max-width: 600px) {
-            nav { gap: 10px; font-size: 0.7rem; }
-            nav a { font-size: 0.8rem; }
-        }
-
-        /* Hero Section */
+        /* Full-Width Hero Section */
         #home { 
+            width: 100vw; /* Forces section to full viewport width */
             height: 100vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
+            background-position: center;
             color: white;
-            padding: 0 20px;
+            margin: 0; /* Ensures no outer spacing */
         }
-        #home h1 { font-size: 3rem; margin-bottom: 10px; }
-        #home p { font-size: 1.2rem; color: var(--accent); font-weight: bold; }
+        #home h1 { font-size: clamp(2rem, 5vw, 4rem); margin-bottom: 10px; padding: 0 20px; }
+        #home p { font-size: clamp(1rem, 2vw, 1.5rem); color: var(--accent); font-weight: bold; }
 
-        /* Content Sections */
-        section { padding: 100px 20px; max-width: 1000px; margin: auto; }
+        section { padding: 100px 5%; max-width: 1200px; margin: auto; }
         h2 { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 30px; text-transform: uppercase; }
 
-        /* Cards for Experience & Projects */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #fff; border: 1px solid #ddd; padding: 25px; border-radius: 8px; transition: transform 0.3s; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: #fff; border: 1px solid #ddd; padding: 25px; border-radius: 8px; transition: 0.3s; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .card h3 { color: var(--primary); margin-bottom: 5px; }
         .date { font-size: 0.85rem; color: #666; font-style: italic; margin-bottom: 15px; display: block; }
-        
-        /* Skills List */
+
         .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
         .skill-badge { background: #e1f5fe; color: #01579b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
 
-        /* Contact Section */
-        #contact { text-align: center; background: var(--light); max-width: 100%; }
-        .contact-info { margin-top: 20px; }
+        #contact { text-align: center; background: var(--light); max-width: 100%; padding: 100px 20px; }
         .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 30px; text-decoration: none; border-radius: 30px; margin-top: 20px; transition: 0.3s; }
         .btn:hover { background: var(--accent); color: var(--primary); }
 
-        /* Footer */
-        footer { text-align: center; padding: 30px; background: var(--primary); color: white; font-size: 0.9rem; }
+        footer { text-align: center; padding: 30px; background: var(--primary); color: white; }
+
+        @media (max-width: 600px) {
+            nav { gap: 15px; }
+            nav a { font-size: 0.75rem; }
+        }
     </style>
 </head>
 <body>
@@ -88,30 +81,38 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>I am a fresh graduate with a <strong>Bachelor of Computer Science (Netcentric Computing)</strong> and hands-on experience in UI/UX design and web development through internships and academic projects[cite: 5]. I am motivated to apply my technical and design skills in a junior role while continuing to learn in a professional environment[cite: 7].</p>
+        <p>I am a fresh graduate with a **Bachelor of Computer Science (Netcentric Computing)** [cite: 30] and hands-on experience in UI/UX design and web development[cite: 5]. I am motivated to apply technical skills in a junior role while continuing to learn[cite: 7].</p>
         
         <div class="skills-container">
-            <span class="skill-badge">Figma</span>
-            <span class="skill-badge">Laravel</span>
-            <span class="skill-badge">HTML/CSS/JS</span>
-            <span class="skill-badge">PHP</span>
-            <span class="skill-badge">WordPress</span>
-            <span class="skill-badge">M365 SharePoint</span>
-            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">Figma</span> <span class="skill-badge">Laravel</span>
+            <span class="skill-badge">HTML/CSS/JS</span> <span class="skill-badge">PHP</span>
+            <span class="skill-badge">WordPress</span> <span class="skill-badge">SharePoint</span>
+            <span class="skill-badge">SQL</span> <span class="skill-badge">Python (Basic)</span>
+        </div>
+
+        <h3 style="margin-top:40px; margin-bottom:20px;">Certifications</h3>
+        <div class="grid">
+            <div class="card" style="padding:15px;">
+                <p>• **AWS Technical Essentials** - Cisco Networking Academy (2025) [cite: 62]</p>
+                <p>• **Data Analytics Job Simulation** - Tata Group (2025) [cite: 63, 64]</p>
+                <p>• **Cybersecurity Analyst Simulation** - Forage (2025) [cite: 67, 68]</p>
+            </div>
         </div>
     </section>
 
     <section id="experience">
-        <h2>Experience</h2>
-        <div class="card">
-            <h3>Web Portal & Multimedia Intern</h3>
-            <span class="date">Tenaga Nasional Berhad | March 2025 - July 2025</span>
-            <ul>
-                <li>Designed UI/UX prototypes and web interfaces using Figma for internal platforms[cite: 13].</li>
-                <li>Improved M365 SharePoint UI by refining visual hierarchy and content structure[cite: 14].</li>
-                <li>Organized and migrated 84+ multimedia files into SharePoint with standardized naming[cite: 15].</li>
-                <li>Created multimedia content such as posters and visual materials for internal use[cite: 18].</li>
-            </ul>
+        <h2>Work & Volunteer Experience</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Web Portal & Multimedia Intern</h3>
+                <span class="date">Tenaga Nasional Berhad | March 2025 - July 2025 [cite: 12, 13]</span>
+                <p>Designed UI/UX prototypes using Figma and improved M365 SharePoint UI layouts[cite: 13, 14]. Migrated 84+ multimedia files with standardized documentation[cite: 15].</p>
+            </div>
+            <div class="card">
+                <h3>Community Volunteer</h3>
+                <span class="date">Program Komuniti Perkasa (TFM) | 2024 [cite: 52, 55]</span>
+                <p>Led a team of six to deliver over 10 educational initiatives for underserved youth based on community feedback[cite: 56].</p>
+            </div>
         </div>
     </section>
 
@@ -120,12 +121,11 @@
         <div class="grid">
             <div class="card">
                 <h3>UiTM Extracurricular Website</h3>
-                <p>Developed a web-based extracurricular management platform using <strong>Laravel and PHP</strong> to centralize university clubs[cite: 24].</p>
-                <p>Implemented user preference-based logic for personalized activity recommendations[cite: 25].</p>
+                <p>Developed a web-based management platform using **Laravel and PHP**[cite: 24]. Implemented personalized activity recommendations [cite: 25] and designed SQL database schemas[cite: 26].</p>
             </div>
             <div class="card">
-                <h3>CSR Surau Screen Website</h3>
-                <p>Contributed to early-stage UI and content planning for a community infotainment website project[cite: 19].</p>
+                <h3>AI Open Day</h3>
+                <p>Volunteer manager[cite: 58]. Managed over 60 high school students and introduced fundamental AI principles[cite: 60].</p>
             </div>
         </div>
     </section>
@@ -133,10 +133,10 @@
     <section id="contact">
         <h2>Get In Touch</h2>
         <div class="contact-info">
-            <p>📍 Ampang, Selangor [cite: 1]</p>
+            <p>📍 Ampang, Selangor </p>
+            <p>📧 **wanzubairwj@gmail.com** [cite: 3]</p>
             <p>📞 01160532432 [cite: 2]</p>
-            <p>📧 wanzubairwj@gmail.com [cite: 3]</p>
-            <a href="mailto:wanzubairwj@gmail.com" class="btn">Email Me Now</a>
+            <a href="mailto:wanzubairwj@gmail.com" class="btn">Send an Email</a>
         </div>
     </section>
 
