@@ -3,20 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Wan Zubair | UI/UX Portfolio</title>
+<title>Wan Zubair | UI/UX Designer</title>
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   background: linear-gradient(135deg, #eef2ff, #fdf2f8);
-  color: #333;
+  color: #1f2937;
 }
 
 /* NAV */
@@ -24,247 +23,232 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
-  background: white;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: #555;
+  color: #444;
 }
 
 /* HERO */
 .hero {
+  padding: 100px 60px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 80px;
   flex-wrap: wrap;
 }
 
-.hero-text {
-  max-width: 500px;
-}
-
 .hero h1 {
-  font-size: 42px;
+  font-size: 48px;
   color: #4f46e5;
 }
 
 .hero p {
   margin-top: 10px;
   color: #555;
+  max-width: 500px;
 }
 
 .hero img {
-  width: 250px;
-  border-radius: 50%;
-  border: 5px solid white;
+  width: 260px;
+  border-radius: 20px;
 }
 
 /* SECTION */
 .section {
-  padding: 60px 80px;
+  padding: 80px 60px;
 }
 
 .section h2 {
+  font-size: 28px;
   margin-bottom: 20px;
-  color: #4f46e5;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
 }
 
 /* CARD */
 .card {
   background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  transition: 0.3s;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-/* PROJECT IMAGE */
+/* PROJECT */
 .project img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-bottom: 10px;
+}
+
+/* CASE STUDY */
+.case {
+  border-left: 4px solid #4f46e5;
+  padding-left: 15px;
+  margin-top: 15px;
+}
+
+/* ANIMATION */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* FOOTER */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px;
   background: #4f46e5;
   color: white;
 }
 
-/* RESPONSIVE */
 @media(max-width:768px){
   .hero {
     flex-direction: column;
-    text-align: center;
   }
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
   <h2>Wan Zubair</h2>
   <div>
+    <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <h1>Hi, I'm Wan Zubair 👋</h1>
+<section class="hero fade">
+  <div>
+    <h1>UI/UX Designer & Frontend Developer</h1>
     <p>
-      UI/UX Designer | Web Developer | Frontend Developer | Product Designer (Junior)
-    </p>
-    <p style="margin-top:10px;">
-      Passionate about designing user-friendly interfaces and building meaningful digital experiences.
+      I design user-focused digital experiences and build responsive web applications.
+      Passionate about turning ideas into intuitive and impactful products.
     </p>
   </div>
 
-  <!-- 🖼️ YOUR PROFILE IMAGE HERE -->
-  <img src="your-image.jpg" alt="Your Photo">
+  <!-- YOUR IMAGE -->
+  <img src="your-image.jpg" alt="">
 </section>
 
-<!-- ABOUT -->
-<section class="section" id="about">
-  <h2>About Me</h2>
+<!-- WORK -->
+<section class="section fade" id="work">
+  <h2>Selected Work</h2>
+
+  <div class="card project">
+    <img src="project1.jpg" alt="">
+    <h3>UiTM Extracurricular Platform</h3>
+
+    <div class="case">
+      <strong>Problem</strong>
+      <p>Students struggle to discover relevant extracurricular activities.</p>
+    </div>
+
+    <div class="case">
+      <strong>Solution</strong>
+      <p>Developed a Laravel-based platform with user preference recommendation system.</p>
+    </div>
+
+    <div class="case">
+      <strong>My Role</strong>
+      <p>UI/UX Design, Frontend Development, Database Design.</p>
+    </div>
+
+    <div class="case">
+      <strong>Impact</strong>
+      <p>Improved usability and personalized experience for students.</p>
+    </div>
+
+    <!-- FIGMA LINK -->
+    <p><a href="#">View Design →</a></p>
+  </div>
+
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section fade">
+  <h2>Experience</h2>
+
   <div class="card">
-    <p>
-      Aspiring UI/UX Designer and Web Developer with a Bachelor’s in Computer Science (Netcentric Computing).
-      Experienced in designing user-centred interfaces and developing web applications using Figma, HTML, CSS, JavaScript, and Laravel.
-      Internship experience at Tenaga Nasional Berhad where I improved interface structure and digital content organization.
-    </p>
+    <h3>Tenaga Nasional Berhad (Intern)</h3>
+    <ul>
+      <li>Designed UI/UX prototypes using Figma</li>
+      <li>Improved SharePoint usability and structure</li>
+      <li>Managed 84+ digital assets</li>
+      <li>Aligned stakeholder requirements with design solutions</li>
+    </ul>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section class="section">
+<section class="section fade">
   <h2>Skills</h2>
   <div class="grid">
-    <div class="card">UI/UX Design (Figma, Wireframing, Prototyping)</div>
-    <div class="card">Frontend (HTML, CSS, JavaScript)</div>
-    <div class="card">Backend (PHP, Laravel MVC)</div>
-    <div class="card">Programming (Java, Python Basic)</div>
-    <div class="card">Database (SQL, SQLyog)</div>
-    <div class="card">Tools (VS Code, SharePoint, Firebase)</div>
+    <div class="card">UI/UX Design</div>
+    <div class="card">Figma & Prototyping</div>
+    <div class="card">HTML, CSS, JavaScript</div>
+    <div class="card">Laravel & PHP</div>
+    <div class="card">SQL & Database</div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="section">
-  <h2>Experience</h2>
+<!-- ABOUT -->
+<section class="section fade" id="about">
+  <h2>About Me</h2>
   <div class="card">
-    <h3>Web Portal & Multimedia Intern – Tenaga Nasional Berhad</h3>
-    <p>Mar 2025 – Jul 2025</p>
-    <ul>
-      <li>Designed UI/UX wireframes and prototypes using Figma</li>
-      <li>Improved SharePoint interface structure and navigation</li>
-      <li>Managed and migrated 84+ multimedia assets</li>
-      <li>Created visual communication materials</li>
-      <li>Translated stakeholder requirements into UI design</li>
-    </ul>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <h2>Projects</h2>
-
-  <div class="grid">
-
-    <div class="card project">
-      <!-- 🖼️ PROJECT IMAGE -->
-      <img src="project1.jpg" alt="">
-      <h3>UiTM Extracurricular Website</h3>
-      <p>
-        Developed using Laravel, PHP, HTML, CSS, JavaScript.
-        Implemented user preference system for personalized recommendations.
-      </p>
-    </div>
-
-    <div class="card project">
-      <img src="project2.jpg" alt="">
-      <h3>UI/UX Design Works</h3>
-      <p>
-        Designed user interfaces and prototypes focusing on usability, layout, and accessibility.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section class="section">
-  <h2>Education</h2>
-  <div class="card">
-    <p><strong>Bachelor of Computer Science</strong> – UiTM Shah Alam</p>
-    <p>CGPA: 3.29 | Dean’s List</p>
-    <br>
-    <p><strong>Diploma in Computer Science</strong> – UiTM Raub</p>
-    <p>CGPA: 3.67 | Dean’s List</p>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section class="section">
-  <h2>Certifications</h2>
-  <div class="grid">
-    <div class="card">AWS Technical Essentials (2025)</div>
-    <div class="card">Tata Data Analytics Simulation</div>
-    <div class="card">Tata Cybersecurity Simulation</div>
-  </div>
-</section>
-
-<!-- ACTIVITIES -->
-<section class="section">
-  <h2>Activities & Involvement</h2>
-  <div class="card">
-    <ul>
-      <li>Industry-Ready Talent Bootcamp – Kode My Future</li>
-      <li>K-Youth Development Programme</li>
-      <li>Volunteer – Teach for Malaysia</li>
-      <li>AI Open Day – UiTM</li>
-    </ul>
+    <p>
+      Computer Science graduate specializing in UI/UX design and web development.
+      Experienced in building user-centered solutions and improving digital platforms.
+    </p>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section fade" id="contact">
   <h2>Contact</h2>
   <div class="card">
     <p>Email: wanzubairwj@gmail.com</p>
     <p>Phone: +60 11-6053 2432</p>
-    <p>Location: Selangor, Malaysia</p>
   </div>
 </section>
 
 <footer>
   <p>© 2026 Wan Zubair</p>
 </footer>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
