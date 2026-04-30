@@ -18,6 +18,7 @@
   transition: 0.3s;
 }
 
+/* BACKGROUND */
 body {
   background: linear-gradient(135deg, #4f46e5, #ec4899);
   color: #333;
@@ -27,71 +28,6 @@ body {
 body.dark {
   background: #0f172a;
   color: #e5e7eb;
-}
-
-body.dark .card,
-body.dark .skill-card,
-body.dark nav {
-  background: #1e293b;
-}
-
-/* GLASS EFFECT FOR ALL CARDS */
-.card,
-.skill-card {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(12px);
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-
-/* PROJECT LAYOUT */
-.project-card {
-  margin-bottom: 40px;
-}
-
-.project-content {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.project-content img {
-  width: 50%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 2px dashed rgba(255,255,255,0.5);
-}
-
-.project-text {
-  width: 50%;
-}
-
-/* ZIGZAG */
-.project-card.reverse .project-content {
-  flex-direction: row-reverse;
-}
-
-/* DARK MODE FIX */
-body.dark .card,
-body.dark .skill-card {
-  background: rgba(30, 41, 59, 0.6);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .project-content {
-    flex-direction: column;
-  }
-
-  .project-card.reverse .project-content {
-    flex-direction: column;
-  }
-
-  .project-content img,
-  .project-text {
-    width: 100%;
-  }
 }
 
 /* NAV */
@@ -159,11 +95,20 @@ nav a {
   color: white;
 }
 
-/* CARD */
-.card {
-  background: rgba(255,255,255,0.95);
-  padding: 20px;
+/* GLASS CARD */
+.card,
+.skill-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
   border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 20px;
+}
+
+body.dark .card,
+body.dark .skill-card,
+body.dark nav {
+  background: rgba(30, 41, 59, 0.6);
 }
 
 /* SKILLS */
@@ -174,13 +119,14 @@ nav a {
 }
 
 .skill-card {
-  background: rgba(255,255,255,0.95);
-  padding: 15px;
   text-align: center;
-  border-radius: 12px;
 }
 
-/* PROJECT LAYOUT */
+/* PROJECT CARD */
+.project-card {
+  margin-bottom: 40px;
+}
+
 .project-content {
   display: flex;
   align-items: center;
@@ -188,6 +134,7 @@ nav a {
   gap: 40px;
 }
 
+/* IMAGE + TEXT CENTERED */
 .project-image,
 .project-text {
   width: 50%;
@@ -198,7 +145,7 @@ nav a {
 
 .project-image img {
   width: 100%;
-  height: 250px;
+  height: 260px;
   object-fit: cover;
   border-radius: 12px;
   border: 2px dashed rgba(255,255,255,0.5);
@@ -209,7 +156,7 @@ nav a {
   flex-direction: row-reverse;
 }
 
-/* DROPDOWN */
+/* DROPDOWN (PREMIUM ANIMATION) */
 .dropdown {
   margin-top: 15px;
 }
@@ -221,84 +168,29 @@ nav a {
   align-items: center;
   padding: 10px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.25);
 }
 
+.dropdown-btn i {
+  transition: transform 0.3s ease;
+}
+
+/* HIDDEN STATE */
 .dropdown-content {
-  display: none;
-  margin-top: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
   font-size: 14px;
   line-height: 1.6;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .project-content {
-    flex-direction: column;
-  }
-
-  .project-card.reverse .project-content {
-    flex-direction: column;
-  }
-
-  .project-image,
-  .project-text {
-    width: 100%;
-  }
-}
-  
-/* PROJECT */
-.project img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 3px dashed #ccc;
-  margin-bottom: 10px;
+/* OPEN STATE */
+.dropdown.open .dropdown-content {
+  max-height: 300px;
 }
 
-.project-row {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  margin-bottom: 60px;
-}
-
-.project-row img {
-  width: 50%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 15px;
-  border: 3px dashed #ccc;
-}
-
-.project-text {
-  width: 50%;
-}
-
-.project-text h3 {
-  margin-bottom: 10px;
-}
-
-/* ZIGZAG */
-.project-row.reverse {
-  flex-direction: row-reverse;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .project-row {
-    flex-direction: column;
-  }
-
-  .project-row.reverse {
-    flex-direction: column;
-  }
-
-  .project-row img,
-  .project-text {
-    width: 100%;
-  }
+.dropdown.open i {
+  transform: rotate(180deg);
 }
 
 /* CONTACT */
@@ -341,6 +233,19 @@ footer {
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .project-content {
+    flex-direction: column;
+  }
+
+  .project-card.reverse .project-content {
+    flex-direction: column;
+  }
+
+  .project-image,
+  .project-text {
+    width: 100%;
+  }
 }
 </style>
 
@@ -371,10 +276,9 @@ footer {
     </p>
 
     <p class="about">
-      Computer Science graduate specializing in UI/UX Design and Web Development.
-      I design user-centered interfaces and build responsive web applications using
-      Figma, HTML, CSS, JavaScript, and Laravel. Experienced in improving digital
-      interfaces and content structure during internship at Tenaga Nasional Berhad.
+      As a recent Computer Science graduate with a majoring in Netcentric Computing, I am passionate about creating user-friendly and impactful digital products. 
+      My experience spans UI/UX design, web development, and project management, allowing me to approach challenges with a comprehensive perspective. 
+      I thrive in collaborative environments and am eager to contribute my skills to a full-time role where I can continue to learn and grow.
     </p>
   </div>
 
@@ -412,15 +316,17 @@ footer {
   <div class="card">
     <h3>Web Portal & Multimedia Intern</h3>
     <p><strong>Tenaga Nasional Berhad (TNB)</strong> • Mar 2025 – Jul 2025</p>
-
     <p style="margin-top:10px;">
-      Designed UI/UX wireframes and interactive prototypes using Figma to improve layout clarity and user navigation.
-      Enhanced SharePoint interface by restructuring content hierarchy for better usability.
+      - Designed UI/UX wireframes and interactive prototypes using Figma to improve layout clarity and user navigation.
     </p>
-
     <p style="margin-top:10px;">
-      Managed over 84 multimedia assets with structured organization.
-      Created visual materials and contributed to UI planning for internal systems.
+      - Enhanced SharePoint interface by restructuring content hierarchy for better usability.
+    </p>
+    <p style="margin-top:10px;">
+      - Managed over 84 multimedia assets with structured organization.
+    </p>
+    <p style="margin-top:10px;">
+      - Created visual materials and contributed to UI planning for internal systems.
     </p>
   </div>
 </section>
@@ -429,79 +335,141 @@ footer {
 <section class="section" id="projects">
   <h2>Projects</h2>
 
-  <!-- PROJECT CARD 1-->
+  <!-- PROJECT 1 -->
   <div class="card project-card">
     <div class="project-content">
-
-      <!-- IMAGE -->
       <div class="project-image">
-        <img src="project1.jpg" alt="">
+        <img src="project1.jpg">
       </div>
-
-      <!-- TEXT -->
       <div class="project-text">
         <h3>UiTM Extracurricular Website</h3>
-        <p>
-          Web-based system built with Laravel and JavaScript focusing on personalized activity recommendations.
-        </p>
+        <p>Laravel-based platform with personalized activity recommendations.</p>
 
-        <!-- DROPDOWN -->
         <div class="dropdown">
           <div class="dropdown-btn" onclick="toggleDropdown(this)">
             <span>View Details</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
-
           <div class="dropdown-content">
             <p><strong>Role:</strong> Full-stack Developer</p>
-            <p><strong>Problem:</strong> Students struggled to find extracurricular activities matching their preferences, leading to low engagement</p>
-            <p><strong>Goal:</strong> Developed a web platform with a recommendation system to personalize extracurricular activity suggestions.</p>
-            <p><strong>Key Contribution:</strong> Designed responsive UI using Bootstrap and customized Blade templates. Developed a user preference-based recommendation system. Conducted user testing and improved the interface based on feedback.</p>
-            <p><strong>Outcome:</strong> Created an intuitive platform enhancing student engagement with tailored activity suggestions.</p>
+            <p><strong>Problem:</strong> Students lacked a centralized system.</p>
+            <p><strong>Goal:</strong> Improve activity discovery.</p>
+            <p><strong>Key Contribution:</strong> Built system + recommendation logic.</p>
+            <p><strong>Outcome:</strong> Better engagement.</p>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-  
-  <!-- PROJECT CARD 2-->
-  <div class="card project-card">
+
+  <!-- PROJECT 2 -->
+  <div class="card project-card reverse">
     <div class="project-content">
-
-      <!-- IMAGE -->
       <div class="project-image">
-        <img src="project1.jpg" alt="">
+        <img src="project2.jpg">
       </div>
-
-      <!-- TEXT -->
       <div class="project-text">
-        <h3>UiTM Extracurricular Website</h3>
-        <p>
-          Web-based system built with Laravel and JavaScript focusing on personalized activity recommendations.
-        </p>
+        <h3>UI/UX Design Works</h3>
+        <p>Designed modern interfaces using Figma.</p>
 
-        <!-- DROPDOWN -->
         <div class="dropdown">
           <div class="dropdown-btn" onclick="toggleDropdown(this)">
             <span>View Details</span>
             <i class="fa-solid fa-chevron-down"></i>
           </div>
-
           <div class="dropdown-content">
-            <p><strong>Role:</strong> Full-stack Developer</p>
-            <p><strong>Problem:</strong> Students struggled to find extracurricular activities matching their preferences, leading to low engagement</p>
-            <p><strong>Goal:</strong> Developed a web platform with a recommendation system to personalize extracurricular activity suggestions.</p>
-            <p><strong>Key Contribution:</strong> Designed responsive UI using Bootstrap and customized Blade templates. Developed a user preference-based recommendation system. Conducted user testing and improved the interface based on feedback.</p>
-            <p><strong>Outcome:</strong> Created an intuitive platform enhancing student engagement with tailored activity suggestions.</p>
+            <p><strong>Role:</strong> UI/UX Designer</p>
+            <p><strong>Problem:</strong> Poor usability in existing layouts.</p>
+            <p><strong>Goal:</strong> Improve visual hierarchy.</p>
+            <p><strong>Key Contribution:</strong> Designed prototypes.</p>
+            <p><strong>Outcome:</strong> Better UX clarity.</p>
           </div>
         </div>
-
       </div>
     </div>
   </div>
-  <!-- DUPLICATE THIS BLOCK FOR PROJECT 2–5 -->
-  
+
+  <!-- PROJECT 3 -->
+  <div class="card project-card">
+    <div class="project-content">
+      <div class="project-image">
+        <img src="project3.jpg">
+      </div>
+      <div class="project-text">
+        <h3>SharePoint Interface Improvement</h3>
+        <p>Improved internal layout and navigation.</p>
+
+        <div class="dropdown">
+          <div class="dropdown-btn" onclick="toggleDropdown(this)">
+            <span>View Details</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="dropdown-content">
+            <p><strong>Role:</strong> UI Designer</p>
+            <p><strong>Problem:</strong> Complex structure.</p>
+            <p><strong>Goal:</strong> Improve navigation.</p>
+            <p><strong>Key Contribution:</strong> Restructured layout.</p>
+            <p><strong>Outcome:</strong> Easier usage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 4 -->
+  <div class="card project-card reverse">
+    <div class="project-content">
+      <div class="project-image">
+        <img src="project4.jpg">
+      </div>
+      <div class="project-text">
+        <h3>CSR Surau Infotainment UI</h3>
+        <p>TV display UI concept for mosque information.</p>
+
+        <div class="dropdown">
+          <div class="dropdown-btn" onclick="toggleDropdown(this)">
+            <span>View Details</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="dropdown-content">
+            <p><strong>Role:</strong> UI Designer</p>
+            <p><strong>Problem:</strong> Unclear information display.</p>
+            <p><strong>Goal:</strong> Clear readable UI.</p>
+            <p><strong>Key Contribution:</strong> Layout design.</p>
+            <p><strong>Outcome:</strong> Better readability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 5 -->
+  <div class="card project-card">
+    <div class="project-content">
+      <div class="project-image">
+        <img src="project5.jpg">
+      </div>
+      <div class="project-text">
+        <h3>Multimedia Content Design</h3>
+        <p>Visual materials for campaigns.</p>
+
+        <div class="dropdown">
+          <div class="dropdown-btn" onclick="toggleDropdown(this)">
+            <span>View Details</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="dropdown-content">
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Problem:</strong> Low engagement visuals.</p>
+            <p><strong>Goal:</strong> Improve communication.</p>
+            <p><strong>Key Contribution:</strong> Designed posters.</p>
+            <p><strong>Outcome:</strong> Higher engagement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- CONTACT -->
@@ -545,9 +513,8 @@ function toggleDark() {
 
 <script>
 function toggleDropdown(el) {
-  const content = el.nextElementSibling;
-  content.style.display =
-    content.style.display === "block" ? "none" : "block";
+  const parent = el.parentElement;
+  parent.classList.toggle("open");
 }
 </script>
   
