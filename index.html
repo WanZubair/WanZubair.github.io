@@ -35,6 +35,65 @@ body.dark nav {
   background: #1e293b;
 }
 
+/* GLASS EFFECT FOR ALL CARDS */
+.card,
+.skill-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* PROJECT LAYOUT */
+.project-card {
+  margin-bottom: 40px;
+}
+
+.project-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.project-content img {
+  width: 50%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px dashed rgba(255,255,255,0.5);
+}
+
+.project-text {
+  width: 50%;
+}
+
+/* ZIGZAG */
+.project-card.reverse .project-content {
+  flex-direction: row-reverse;
+}
+
+/* DARK MODE FIX */
+body.dark .card,
+body.dark .skill-card {
+  background: rgba(30, 41, 59, 0.6);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .project-content {
+    flex-direction: column;
+  }
+
+  .project-card.reverse .project-content {
+    flex-direction: column;
+  }
+
+  .project-content img,
+  .project-text {
+    width: 100%;
+  }
+}
+
 /* NAV */
 nav {
   display: flex;
@@ -226,6 +285,7 @@ footer {
 <nav>
   <h2>Wan Zubair</h2>
   <div>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
     <span class="toggle-btn" onclick="toggleDark()">
@@ -280,7 +340,7 @@ footer {
 </section>
 
 <!-- EXPERIENCE -->
-<section class="section">
+<section class="section" id="experience">
   <h2>Experience</h2>
   <div class="card">
     <h3>Web Portal & Multimedia Intern</h3>
@@ -303,64 +363,72 @@ footer {
   <h2>Projects</h2>
 
   <!-- PROJECT 1 -->
-  <div class="project-row">
-    <img src="project1.jpg" alt="">
-    <div class="project-text">
-      <h3>UiTM Extracurricular Website</h3>
-      <p>
-        Developed a web-based platform using Laravel, PHP, HTML, CSS, and JavaScript.
-        Implemented user preference logic to recommend activities and improve engagement.
-        Designed system structure and user flow to enhance usability.
-      </p>
+  <div class="card project-card">
+    <div class="project-content">
+      <img src="project1.jpg">
+      <div class="project-text">
+        <h3>UiTM Extracurricular Website</h3>
+        <p>
+          Developed a web-based platform using Laravel, PHP, HTML, CSS, and JavaScript.
+          Implemented user preference logic to recommend activities and improve engagement.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- PROJECT 2 -->
-  <div class="project-row reverse">
-    <img src="project2.jpg" alt="">
-    <div class="project-text">
-      <h3>UI/UX Design Projects</h3>
-      <p>
-        Designed multiple user interfaces and interactive prototypes using Figma.
-        Focused on layout clarity, usability, and visual hierarchy to improve user experience.
-      </p>
+  <div class="card project-card reverse">
+    <div class="project-content">
+      <img src="project2.jpg">
+      <div class="project-text">
+        <h3>UI/UX Design Projects</h3>
+        <p>
+          Designed user interfaces and prototypes using Figma focusing on usability,
+          layout structure, and visual hierarchy.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- PROJECT 3 -->
-  <div class="project-row">
-    <img src="project3.jpg" alt="">
-    <div class="project-text">
-      <h3>SharePoint Interface Improvement</h3>
-      <p>
-        Improved internal SharePoint interface structure during internship.
-        Reorganized page hierarchy and content layout to increase readability
-        and accessibility for internal users.
-      </p>
+  <div class="card project-card">
+    <div class="project-content">
+      <img src="project3.jpg">
+      <div class="project-text">
+        <h3>SharePoint Interface Improvement</h3>
+        <p>
+          Improved internal SharePoint layout and navigation structure to enhance
+          readability and user accessibility.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- PROJECT 4 -->
-  <div class="project-row reverse">
-    <img src="project4.jpg" alt="">
-    <div class="project-text">
-      <h3>CSR Surau Infotainment UI Concept</h3>
-      <p>
-        Contributed to UI layout and concept design for a surau infotainment system.
-        Focused on clear information display and structured layout for TV screen usage.
-      </p>
+  <div class="card project-card reverse">
+    <div class="project-content">
+      <img src="project4.jpg">
+      <div class="project-text">
+        <h3>CSR Surau Infotainment UI</h3>
+        <p>
+          Designed layout concept for TV-based information display focusing on
+          clarity and structured content presentation.
+        </p>
+      </div>
     </div>
   </div>
 
   <!-- PROJECT 5 -->
-  <div class="project-row">
-    <img src="project5.jpg" alt="">
-    <div class="project-text">
-      <h3>Multimedia Content Design</h3>
-      <p>
-        Designed posters and visual communication materials for internal campaigns.
-        Applied design principles to improve engagement and message clarity.
-      </p>
+  <div class="card project-card">
+    <div class="project-content">
+      <img src="project5.jpg">
+      <div class="project-text">
+        <h3>Multimedia Content Design</h3>
+        <p>
+          Created posters and visual materials for campaigns, improving communication
+          clarity and user engagement.
+        </p>
+      </div>
     </div>
   </div>
 
