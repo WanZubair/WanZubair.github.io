@@ -129,6 +129,35 @@ nav a {
   color: inherit;
 }
 
+.contact-grid {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  flex: 1;
+  padding: 20px;
+}
+
+.contact-item i {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #4f46e5;
+}
+
+.contact-item .label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+}
+
 /* FOOTER */
 footer {
   text-align: center;
@@ -215,12 +244,31 @@ footer {
 <!-- CONTACT -->
 <section class="section" id="contact">
   <h2>Contact</h2>
+
   <div class="card">
-    <div class="contact-icons">
-      <a href="mailto:wanzubairwj@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-      <a href="tel:+601160532432"><i class="fa-solid fa-phone"></i></a>
-      <a href="#"><i class="fa-solid fa-location-dot"></i></a>
-      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    <div class="contact-grid">
+
+      <!-- EMAIL -->
+      <div class="contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <p class="label">Email</p>
+        <a href="mailto:wanzubairwj@gmail.com">wanzubairwj@gmail.com</a>
+      </div>
+
+      <!-- PHONE -->
+      <div class="contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <p class="label">Phone</p>
+        <a href="tel:+601160532432">+60 11-6053 2432</a>
+      </div>
+
+      <!-- LINKEDIN -->
+      <div class="contact-item">
+        <i class="fa-brands fa-linkedin"></i>
+        <p class="label">LinkedIn</p>
+        <a href="https://www.linkedin.com/" target="_blank">View Profile</a>
+      </div>
+
     </div>
   </div>
 </section>
