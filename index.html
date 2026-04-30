@@ -180,6 +180,73 @@ nav a {
   border-radius: 12px;
 }
 
+/* PROJECT LAYOUT */
+.project-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.project-image,
+.project-text {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px dashed rgba(255,255,255,0.5);
+}
+
+/* ZIGZAG */
+.project-card.reverse .project-content {
+  flex-direction: row-reverse;
+}
+
+/* DROPDOWN */
+.dropdown {
+  margin-top: 15px;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.3);
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .project-content {
+    flex-direction: column;
+  }
+
+  .project-card.reverse .project-content {
+    flex-direction: column;
+  }
+
+  .project-image,
+  .project-text {
+    width: 100%;
+  }
+}
+  
 /* PROJECT */
 .project img {
   width: 100%;
@@ -362,76 +429,44 @@ footer {
 <section class="section" id="projects">
   <h2>Projects</h2>
 
-  <!-- PROJECT 1 -->
+  <!-- PROJECT CARD -->
   <div class="card project-card">
     <div class="project-content">
-      <img src="project1.jpg">
+
+      <!-- IMAGE -->
+      <div class="project-image">
+        <img src="project1.jpg" alt="">
+      </div>
+
+      <!-- TEXT -->
       <div class="project-text">
         <h3>UiTM Extracurricular Website</h3>
         <p>
-          Developed a web-based platform using Laravel, PHP, HTML, CSS, and JavaScript.
-          Implemented user preference logic to recommend activities and improve engagement.
+          Web-based system built with Laravel and JavaScript focusing on personalized activity recommendations.
         </p>
+
+        <!-- DROPDOWN -->
+        <div class="dropdown">
+          <div class="dropdown-btn" onclick="toggleDropdown(this)">
+            <span>View Details</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+
+          <div class="dropdown-content">
+            <p><strong>Role:</strong> Full-stack Developer</p>
+            <p><strong>Problem:</strong> Students struggled to find suitable extracurricular activities.</p>
+            <p><strong>Goal:</strong> Provide personalized recommendations based on user preferences.</p>
+            <p><strong>Key Contribution:</strong> Built Laravel system and recommendation logic.</p>
+            <p><strong>Outcome:</strong> Improved engagement and activity discovery.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 2 -->
-  <div class="card project-card reverse">
-    <div class="project-content">
-      <img src="project2.jpg">
-      <div class="project-text">
-        <h3>UI/UX Design Projects</h3>
-        <p>
-          Designed user interfaces and prototypes using Figma focusing on usability,
-          layout structure, and visual hierarchy.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 3 -->
-  <div class="card project-card">
-    <div class="project-content">
-      <img src="project3.jpg">
-      <div class="project-text">
-        <h3>SharePoint Interface Improvement</h3>
-        <p>
-          Improved internal SharePoint layout and navigation structure to enhance
-          readability and user accessibility.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 4 -->
-  <div class="card project-card reverse">
-    <div class="project-content">
-      <img src="project4.jpg">
-      <div class="project-text">
-        <h3>CSR Surau Infotainment UI</h3>
-        <p>
-          Designed layout concept for TV-based information display focusing on
-          clarity and structured content presentation.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 5 -->
-  <div class="card project-card">
-    <div class="project-content">
-      <img src="project5.jpg">
-      <div class="project-text">
-        <h3>Multimedia Content Design</h3>
-        <p>
-          Created posters and visual materials for campaigns, improving communication
-          clarity and user engagement.
-        </p>
-      </div>
-    </div>
-  </div>
-
+  <!-- DUPLICATE THIS BLOCK FOR PROJECT 2–5 -->
+  
 </section>
 
 <!-- CONTACT -->
@@ -473,5 +508,13 @@ function toggleDark() {
 }
 </script>
 
+<script>
+function toggleDropdown(el) {
+  const content = el.nextElementSibling;
+  content.style.display =
+    content.style.display === "block" ? "none" : "block";
+}
+</script>
+  
 </body>
 </html>
