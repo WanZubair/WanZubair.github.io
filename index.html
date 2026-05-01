@@ -20,10 +20,10 @@
 
 body {
   background: linear-gradient(
-    135deg,
-  #0b1f3a 0%,
-  #1e3a5f 35%,
-  #7a4b2a 100%
+  135deg,
+  #0f172a,
+  #312e81,
+  #7c3aed
   );
   min-height: 100vh;
   color: #f8fafc;
@@ -40,13 +40,17 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
-  background: rgba(255,255,255,0.9);
+
+  background: rgba(15, 23, 42, 0.6); /* dark glass */
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 nav a {
   margin-left: 20px;
   text-decoration: none;
-  color: inherit;
+  color: #f8fafc;
 }
 
 .toggle-btn {
@@ -123,7 +127,7 @@ nav div {
 body.dark .card,
 body.dark .skill-card,
 body.dark nav {
-  background: rgba(30, 41, 59, 0.6);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 /* SKILLS */
@@ -364,7 +368,7 @@ body {
 
 <!-- NAV -->
 <nav>
-  <h2>Wan Zubair</h2>
+  <h2>Wan Zubair's Portfolio</h2>
   <div>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
