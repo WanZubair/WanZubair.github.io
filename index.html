@@ -50,28 +50,22 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
-  background: rgba(15, 23, 42, 0.6);
+
+  background: rgba(15, 47, 47, 0.7); /* dark green glass */
   backdrop-filter: blur(10px);
+
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+/* text color */
 nav h2,
 nav a {
   color: #f8fafc;
 }
 
-nav div {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-nav a {
-  text-decoration: none;
-}
-
+/* hover */
 nav a:hover {
-  color: #f59e0b;
+  color: #f59e0b; /* warm gold */
 }
 
 .toggle-btn {
@@ -361,6 +355,29 @@ body.dark nav {
     grid-template-columns: 1fr;
   }
 }
+
+footer {
+  text-align: center;
+  padding: 25px;
+
+  background: rgba(15, 47, 47, 0.7);
+  backdrop-filter: blur(10px);
+
+  border-top: 1px solid rgba(255,255,255,0.1);
+
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+footer a {
+  color: #f59e0b;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+  
 </style>
   
 </style>
