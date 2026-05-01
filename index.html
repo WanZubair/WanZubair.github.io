@@ -248,6 +248,94 @@ footer {
     width: 100%;
   }
 }
+
+/* 🌌 NEW BACKGROUND (dark blue → rich brown) */
+body {
+  background: linear-gradient(135deg, #0f172a, #3b2f2f);
+  color: #e5e7eb;
+}
+
+/* ✨ SMOOTH SCROLL ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 💎 HOVER EFFECT (cards) */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* 📌 LEADERSHIP GRID */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.grid-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 2px dashed rgba(255,255,255,0.4);
+}
+
+.grid-card p {
+  text-align: center;
+  font-size: 14px;
+}
+
+/* 🏆 CERTIFICATION CARDS */
+.cert-card {
+  cursor: pointer;
+}
+
+/* 🖼️ MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+}
+
+.modal img {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+/* ❌ CLOSE BUTTON */
+.modal-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+  
 </style>
 
 </head>
@@ -469,6 +557,64 @@ footer {
 
 </section>
 
+<!-- LEADERSHIP & VOLUNTEER -->
+<section class="section fade-in">
+  <h2>Leadership & Volunteer</h2>
+
+  <div class="grid-4">
+
+    <div class="card grid-card">
+      <img src="lead1.jpg">
+      <p>Industry-Ready Talent Bootcamp (Kode My Future)</p>
+    </div>
+
+    <div class="card grid-card">
+      <img src="lead2.jpg">
+      <p>K-Youth Development Programme</p>
+    </div>
+
+    <div class="card grid-card">
+      <img src="lead3.jpg">
+      <p>Teach for Malaysia Volunteer</p>
+    </div>
+
+    <div class="card grid-card">
+      <img src="lead4.jpg">
+      <p>AI Open Day UiTM</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section fade-in">
+  <h2>Certifications</h2>
+
+  <div class="grid-4">
+
+    <div class="card grid-card cert-card" onclick="openModal('cert1.jpg')">
+      <img src="cert1.jpg">
+      <p>AWS Technical Essentials</p>
+    </div>
+
+    <div class="card grid-card cert-card" onclick="openModal('cert2.jpg')">
+      <img src="cert2.jpg">
+      <p>Tata Data Analytics</p>
+    </div>
+
+    <div class="card grid-card cert-card" onclick="openModal('cert3.jpg')">
+      <img src="cert3.jpg">
+      <p>Tata Cybersecurity</p>
+    </div>
+
+    <div class="card grid-card cert-card" onclick="openModal('cert4.jpg')">
+      <img src="cert4.jpg">
+      <p>Tata ESG Simulation</p>
+    </div>
+
+  </div>
+</section>
+  
 <!-- CONTACT -->
 <section class="section" id="contact">
   <h2>Contact</h2>
@@ -503,17 +649,45 @@ footer {
 </footer>
 
 <script>
+
+/* 🌙 DARK MODE */
 function toggleDark() {
   document.body.classList.toggle("dark");
 }
-</script>
 
-<script>
+/* ⬇️ DROPDOWN */
 function toggleDropdown(el) {
   const parent = el.parentElement;
   parent.classList.toggle("open");
 }
+
+/* ✨ SCROLL ANIMATION */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* 🖼️ MODAL */
+function openModal(src) {
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("modal-img").src = src;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
 </script>
+
+<div id="modal" class="modal">
+  <span class="modal-close" onclick="closeModal()">&times;</span>
+  <img id="modal-img">
+</div>
   
 </body>
 </html>
