@@ -49,6 +49,7 @@ body.dark {
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px 60px;
 
   background: rgba(15, 47, 47, 0.7); /* dark green glass */
@@ -57,10 +58,23 @@ nav {
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* spacing between menu items */
+}
+
 /* text color */
 nav h2,
 nav a {
   color: #f8fafc;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  position: relative;
 }
 
 /* hover */
@@ -68,9 +82,23 @@ nav a:hover {
   color: #f59e0b; /* warm gold */
 }
 
+nav a:hover::after {
+  width: 100%;
+}
+
+/* TOGGLE BUTTON */
 .toggle-btn {
   cursor: pointer;
   margin-left: 10px;
+}
+
+.toggle-btn i {
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.toggle-btn:hover i {
+  transform: rotate(20deg) scale(1.2);
 }
 
 /* HERO */
@@ -360,13 +388,14 @@ footer {
   text-align: center;
   padding: 25px;
 
-  background: rgba(15, 47, 47, 0.7);
+  background: rgba(107, 63, 42, 0.7); /* warm brown glass */
   backdrop-filter: blur(10px);
 
   border-top: 1px solid rgba(255,255,255,0.1);
 
-  color: #e5e7eb;
+  color: #f1f5f9;
   font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 footer a {
@@ -375,7 +404,7 @@ footer a {
 }
 
 footer a:hover {
-  text-decoration: underline;
+  opacity: 0.8;
 }
   
 </style>
