@@ -31,9 +31,9 @@
 body {
   background: linear-gradient(
     135deg,
-    #0a192f,
-    #1f2937,
-    #a16207
+    #0f2f2f 0%,   /* dark green */
+    #2f4f4f 40%,  /* softer green */
+    #6b3f2a 100%  /* warm brown */
   );
   min-height: 100vh;
   color: #f8fafc;
@@ -71,7 +71,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #c084fc;
+  color: #f59e0b;
 }
 
 .toggle-btn {
@@ -106,6 +106,7 @@ nav a:hover {
   margin-top: 15px;
   color: #e5e7eb;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .hero img {
@@ -205,6 +206,11 @@ body.dark nav {
   transition: transform 0.3s ease;
 }
 
+/* OPTIONAL: dropdown hover feel */
+.dropdown-btn:hover {
+  background: rgba(245, 158, 11, 0.2);
+}
+
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
@@ -237,7 +243,7 @@ body.dark nav {
 .contact-item i {
   font-size: 28px;
   margin-bottom: 10px;
-  color: #818cf8;
+  color: #f59e0b; /* warm gold */
 }
 
 .contact-item .label {
