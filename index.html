@@ -18,11 +18,15 @@
   transition: 0.3s;
 }
 
-/* BACKGROUND */
 body {
-  background: linear-gradient(135deg, #0f172a, #3b2219);
-  min-height: 100vh; /* Ensures the gradient covers the whole page */
-  color: #f8fafc;    /* Switched to a light text color for readability on dark background */
+  background: linear-gradient(
+    135deg,
+  #0b1f3a 0%,
+  #1e3a5f 35%,
+  #7a4b2a 100%
+  );
+  min-height: 100vh;
+  color: #f8fafc;
 }
 
 /* DARK MODE */
@@ -47,6 +51,16 @@ nav a {
 
 .toggle-btn {
   cursor: pointer;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.toggle-btn {
+  margin-left: 10px;
 }
 
 /* HERO */
@@ -99,7 +113,7 @@ nav a {
 /* GLASS CARD */
 .card,
 .skill-card {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   border-radius: 15px;
   border: 1px solid rgba(255,255,255,0.3);
@@ -299,6 +313,12 @@ body {
   cursor: pointer;
 }
 
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 20px;
+}
+
 /* 🖼️ MODAL */
 .modal {
   display: none;
@@ -349,6 +369,7 @@ body {
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
+  
     <span class="toggle-btn" onclick="toggleDark()">
       <i class="fa-solid fa-moon"></i>
     </span>
@@ -590,7 +611,7 @@ body {
 <section class="section fade-in">
   <h2>Certifications</h2>
 
-  <div class="grid-4">
+  <div class="cert-grid">
 
     <div class="card grid-card cert-card" onclick="openModal('cert1.jpg')">
       <img src="cert1.jpg">
