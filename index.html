@@ -18,12 +18,23 @@
   transition: 0.3s;
 }
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  transition: 0.3s;
+}
+
+/* 🌌 BACKGROUND (FIXED DARK BLUE → BROWN) */
 body {
   background: linear-gradient(
-  135deg,
-  #0a192f,
-  #1f2937,
-  #a16207
+    135deg,
+    #0a192f,
+    #1f2937,
+    #a16207
+  );
   min-height: 100vh;
   color: #f8fafc;
 }
@@ -39,21 +50,14 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 20px 60px;
-
-  background: rgba(15, 23, 42, 0.6); /* dark glass */
+  background: rgba(15, 23, 42, 0.6);
   backdrop-filter: blur(10px);
-
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
+nav h2,
 nav a {
-  margin-left: 20px;
-  text-decoration: none;
   color: #f8fafc;
-}
-
-.toggle-btn {
-  cursor: pointer;
 }
 
 nav div {
@@ -62,7 +66,16 @@ nav div {
   gap: 20px;
 }
 
+nav a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #c084fc;
+}
+
 .toggle-btn {
+  cursor: pointer;
   margin-left: 10px;
 }
 
@@ -86,12 +99,12 @@ nav div {
 
 .role {
   margin-top: 10px;
-  color: #eee;
+  color: #ddd;
 }
 
 .about {
   margin-top: 15px;
-  color: #f3f4f6;
+  color: #e5e7eb;
   line-height: 1.6;
 }
 
@@ -140,7 +153,7 @@ body.dark nav {
   text-align: center;
 }
 
-/* PROJECT CARD */
+/* PROJECT */
 .project-card {
   margin-bottom: 40px;
 }
@@ -152,7 +165,6 @@ body.dark nav {
   gap: 40px;
 }
 
-/* IMAGE + TEXT CENTERED */
 .project-image,
 .project-text {
   width: 50%;
@@ -174,7 +186,7 @@ body.dark nav {
   flex-direction: row-reverse;
 }
 
-/* DROPDOWN (PREMIUM ANIMATION) */
+/* DROPDOWN */
 .dropdown {
   margin-top: 15px;
 }
@@ -193,7 +205,6 @@ body.dark nav {
   transition: transform 0.3s ease;
 }
 
-/* HIDDEN STATE */
 .dropdown-content {
   max-height: 0;
   overflow: hidden;
@@ -202,7 +213,6 @@ body.dark nav {
   line-height: 1.6;
 }
 
-/* OPEN STATE */
 .dropdown.open .dropdown-content {
   max-height: 300px;
 }
@@ -227,7 +237,7 @@ body.dark nav {
 .contact-item i {
   font-size: 28px;
   margin-bottom: 10px;
-  color: #4f46e5;
+  color: #818cf8;
 }
 
 .contact-item .label {
@@ -239,58 +249,7 @@ body.dark nav {
   color: inherit;
 }
 
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: white;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .project-content {
-    flex-direction: column;
-  }
-
-  .project-card.reverse .project-content {
-    flex-direction: column;
-  }
-
-  .project-image,
-  .project-text {
-    width: 100%;
-  }
-}
-
-/* 🌌 NEW BACKGROUND (dark blue → rich brown) */
-body {
-  background: linear-gradient(135deg, #0f172a, #3b2f2f);
-  color: #e5e7eb;
-}
-
-/* ✨ SMOOTH SCROLL ANIMATION */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 💎 HOVER EFFECT (cards) */
-.card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-}
-
-/* 📌 LEADERSHIP GRID */
+/* LEADERSHIP */
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -311,18 +270,18 @@ body {
   font-size: 14px;
 }
 
-/* 🏆 CERTIFICATION CARDS */
+/* CERTIFICATIONS */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 .cert-card {
   cursor: pointer;
 }
 
-.cert-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 per row */
-  gap: 20px;
-}
-
-/* 🖼️ MODAL */
+/* MODAL */
 .modal {
   display: none;
   position: fixed;
@@ -342,7 +301,6 @@ body {
   border-radius: 10px;
 }
 
-/* ❌ CLOSE BUTTON */
 .modal-close {
   position: absolute;
   top: 30px;
@@ -352,12 +310,52 @@ body {
   cursor: pointer;
 }
 
+/* ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
 /* RESPONSIVE */
 @media(max-width:900px){
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .project-content {
+    flex-direction: column;
+  }
+
+  .project-card.reverse .project-content {
+    flex-direction: column;
+  }
+
+  .project-image,
+  .project-text {
+    width: 100%;
+  }
+
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
 }
+</style>
   
 </style>
 
