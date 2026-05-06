@@ -385,6 +385,30 @@ body.dark nav {
   }
 }
 
+#scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+
+  display: none; /* hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+  background-color: #555;
+}
+
 footer {
   text-align: center;
   padding: 25px;
@@ -766,12 +790,31 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
+  const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+
 </script>
 
 <div id="modal" class="modal">
   <span class="modal-close" onclick="closeModal()">&times;</span>
   <img id="modal-img">
 </div>
-  
+
+<button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
 </body>
 </html>
